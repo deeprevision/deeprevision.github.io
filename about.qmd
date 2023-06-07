@@ -1,0 +1,20 @@
+---
+title: "About"
+image: deeprev.png
+about:
+  template: trestles
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/jeande_d
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/nyandwi/
+    - icon: github
+      text: Github
+      href: https://github.com/Nyandwi
+
+---
+## Deep Learning Revision
+
+Deep Learning Revision is an operating manual of AI research and education.
