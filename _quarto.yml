@@ -4,6 +4,9 @@ project:
 
 website:
   title: "Deep Learning Revision"
+  twitter-card: true
+  open-graph: true
+  favicon: deeprev.png
   navbar:
     right:
       - about.qmd

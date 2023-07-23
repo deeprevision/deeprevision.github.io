@@ -1,12 +1,40 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
-date: "2023-06-04"
-categories: [news]
+title: "Introducing Deep Learning Revision Research Blog"
+author: "Jean de Dieu Nyandwi"
+date: "2023-07-23"
+categories: [updates, research, deep learning]
 ---
+![](./introducing-deep-rev.png)
 
-This is the first post in a Quarto blog. Welcome!
+Greetings,
 
-![](thumbnail.jpg)
+I am delighted to introduce Deep Learning Revision research blog. The aim of Deep Learning Revision blog is to elucidate both fundamental principles and cutting-edge techniques in AI research.
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+AI research has experienced a Cambrian explosion in recent years. Since 2012 when [AlexNet](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) showed significant performance on image recognition, deep learning has profoundly reshaped the field of AI. The period between 2010-2020 was especially ripe with innovations:
+
+* Development of new models: The past decade has seen the emergence of revolutionary models such [Transformer neural network](https://arxiv.org/abs/1706.03762), which have changed the game by making it possible to learn from vast amounts of data in a way that was not previously possible.
+
+* Improved optimization techniques that have made the model training process more efficient and manageable.
+
+* Enhanced evaluation benchmarks: Evaluation metrics and benchmarks have also seen significant improvements. From standard datasets in image recognition (like [ImageNet](https://www.image-net.org/index.php)) to benchmarks in natural language understanding (such as [GLUE](https://arxiv.org/abs/1804.07461) and [SuperGLUE](https://arxiv.org/abs/1905.00537)), these advancements have provided the community with standard platforms to test and compare the performance of various models and techniques across a wide range of tasks.
+
+We have seen models like Transformers taking over natural language processing(NLP), computer vision, and at the same time showing potential in complex problems such as in robotics, reinforncement learning, etc...It's even unbelievable what happened in the last two years. For instance, we have witnessed AI systems that are capable of generating photorealistic images, transcribing speeches with high accuracy, understanding multiple modalities, and generating realistic texts. Let's expand that and provide a few specific examples:
+
+- Image generation is arguably one of the fields that have had massive breakthroughts in last two years. In 2017, at best, the images you could generate were 32x32 pixels filled up with too much blogs. Fast forward, in 2023, image generation systems have improved to the extent it's hard to differentiate real and fake images, and in the future, it will be the same for videos as well, if not already. Examples of seminal works in image generation are [DALLE•2](https://openai.com/dall-e-2), [Stable Diffusion](https://arxiv.org/abs/2112.10752), [Imagen](https://imagen.research.google/), among others.
+
+- Text generation has had many breakthroughs as image generation in recent times. Large language models have taken the world by a storm. The biggest revolution has mostly been in natural language interfaces like ChatGPT and Google Bard. Natural language interfaces are powered by large language models pretrained on massive amount of text data. Example of large language models are [GPT-3](https://arxiv.org/abs/2005.14165), [GPT-4](https://arxiv.org/abs/2303.08774), [PaLM](https://arxiv.org/abs/2204.02311), [PaLM-2](https://blog.google/technology/ai/google-palm-2-ai-large-language-model/), [LLaMA](https://arxiv.org/abs/2302.13971), [LLaMA2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/), [Chinchilla](https://arxiv.org/abs/2203.15556), [BLOOM](https://arxiv.org/abs/2211.05100), among others.
+
+- Multimodal learning is another concrete example of recent advancements in deep learning. Designing single systems that can see and hear what's around and respond accordingly is the holy grail of AI.  Although there are still challenges, it is inaruagable that the AI research community has solved independent modalities to a large extent. Agents in real-world however must have the ability to learn from multiple modalities jointly. A challenge now is to design AI systems that can efficiently extract meaningful representations from different modalities without requiring modality-specific encodings. There has been many remarkable works in multimodal learning(most of them are surprisingly visual language models). Notable examples are [Flamingo](https://arxiv.org/abs/2204.14198), [Gato](https://arxiv.org/abs/2205.06175), [BLIP](https://arxiv.org/abs/2201.12086)(and [BLIP-2](https://arxiv.org/abs/2301.12597)), [PaLI](https://arxiv.org/abs/2209.06794) and [PaLI-X](https://arxiv.org/abs/2305.18565), among others. With the advancements of visual recognition models and language models as [generalization engine](https://evjang.com/2021/12/17/lang-generalization.html), I expect to see massive breakthroughts in this area in the next months.
+
+- Robotics is another field that is yet to be influenced by deep learning. Robotic tasks typically require low-level engineering and there are so much potential if modern deep learning algorithms can take care of those low-level tasks by learning from massive amount of data. Robotics as a field poses many challenges, but there are many ongoing works around deep robot learning and this also the field that is going to shine in the next few years. Some notable works around deep robotic learning that was published recently are [SayCan](https://say-can.github.io/), [Robotic Transformer(RT-1)](https://robotics-transformer.github.io/), [VIMA](https://arxiv.org/abs/2210.03094), [RoboCat](https://arxiv.org/abs/2306.11706), among others.
+
+I see this blog as a little corner in the universe where we can discuss recent research, deconstruct papers, and really try to understand what's going on. I plan to publish well-studied materials across foundational techniques and some emerging topics. This is new project and as with other new projects, I don't have everything figured out. New articles will be released irregularily, some may take longer(I tend not to compromise quality for speed), and some other unprojected challenges. All in all, I am super excited for this research blog and I can't wait to publish the first article in the next few days.
+
+Until the first article!
+
+Cheers!
+
+
+
+
+
