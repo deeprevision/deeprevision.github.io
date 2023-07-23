@@ -15,6 +15,4 @@ about:
       href: https://github.com/Nyandwi
 
 ---
-## Deep Learning Revision
-
-Deep Learning Revision is an operating manual of AI research and education.
+Deep Learning Revision is an operating manual of AI research. Our mission is to distill and clarify both foundational theories and cutting-edge approaches in the realm of AI research.
