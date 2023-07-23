@@ -1,6 +1,7 @@
 ---
 title: "Introducing Deep Learning Revision Research Blog"
 author: "Jean de Dieu Nyandwi"
+description: "Welcome to a new research blog!"
 date: "2023-07-23"
 categories: [updates, research, deep learning]
 ---
