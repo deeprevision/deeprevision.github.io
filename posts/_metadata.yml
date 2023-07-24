@@ -5,4 +5,6 @@
 freeze: true
 
 # Enable banner style title blocks
-title-block-banner: true
+title-block-banner: "#02071a"
+title-block-banner-color: "white"
+

@@ -3,8 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "Deep Learning Revision"
-  twitter-card: true
+  title: "AI Research Blog"
+  # twitter-card: true
+  # google-analytics: "UA-XXXXXXXX"
   open-graph: true
   favicon: deeprev.png
   navbar:
