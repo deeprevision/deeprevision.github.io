@@ -543,6 +543,10 @@ Figure 23: Language models(based on Transformer) tends to perform well when rele
 <p>A primary objective in neural network design is to architect a single, universal model that can efficiently process multiple modalities without necessitating modality-specific encoders or preprocessing. Indeed, transformer models have seen widespread application across various domains, spanning text, images, robotics, and speech. Yet, the goal of creating a truly universal transformer — one that performs equally effectively across all modalities without requiring specific adjustments — remains a challenge. This challenge arises from the inherent differences and complexities in data types and the transformer model itself, which frequently demand modality-specific modifications.</p>
 <p>For instance, the process for handling text, images, and speech each have unique considerations due to their individual characteristics. Transformers excel in scenarios where data can be framed as a sequence of tokens, however, the method of transposing a particular modality into such a sequence significantly varies among different modalities. Consequently, the challenge lies in designing a singular architecture that can uniformly extract valuable insights from all data types with comparable efficiency.</p>
 <p>The achievement of such an architecture would signify a monumental stride in the field of multimodal learning, paving the way for models that can seamlessly transition between different types of data and potentially unlocking new avenues of exploration in multimodal representation learning.</p>
+<p>Nearly all current state-of-the-arts in multimodal learning typically uses separate tokenizer and encoder for each modality and most of them are also designed for visual language learning. This section doesn’t dive deep into the specifics of current multimodal approaches based on transformers but we provide examples for people interested in diving deep: Flamingo(visual language)(<a href="https://arxiv.org/abs/2204.14198">Alayrac et al., 2022</a>), Gato(<a href="https://arxiv.org/abs/2205.06175">Reed et al., 2022</a>), ImageBind(<a href="https://arxiv.org/abs/2305.05665">Girdhar et al., 2023</a>), OFA(<a href="https://arxiv.org/ABS/2202.03052">Wang et al., 2022</a>), Unified-IO(<a href="https://arxiv.org/abs/2206.08916">Lu et al., 2022</a>), Meta-Transformer(<a href="https://arxiv.org/abs/2307.10802">Zhang et al., 2023</a>), among others.</p>
+<blockquote class="blockquote">
+<p>Virtually all transformer challenges stem from its extreme compute requirements. Truly efficient transformers such as FlashAttention will eliminate most of them.</p>
+</blockquote>
 </section>
 </section>
 <section id="open-source-implementations-of-transformer" class="level1">
@@ -559,9 +563,10 @@ Figure 23: Language models(based on Transformer) tends to perform well when rele
 <li><p>Let’s Build GPT from Scratch by Andrej Karpathy: This is arguably the best resource regarding implementations of transformer, most notably, GPT(Generative Pre-training Transformer). Karpathy builds and trains entire GPT from scratch, providing a decent explanation of every step along the way. Here is a <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&amp;index=7&amp;t=1939s">lecture video</a> and <a href="https://github.com/karpathy/nanoGPT/tree/master">accompanying code repository(nanoGPT)</a>.</p></li>
 <li><p><a href="https://web.stanford.edu/class/cs25/">Stanford CS25: Transformers United V2</a> aims at examining how transformers work and how they are applied in different fields from NLP, CV, biology to robotics and more. This course contains excellent talks from researchers. The <a href="https://www.youtube.com/watch?v=XfpMkf4rD6E">introductory class</a> of recent version of the course delves into transformer architecture and it is given by Karpathy, someone who deeply understands the intricacies of neural networks.</p></li>
 <li><p><a href="https://arxiv.org/abs/2207.09238">Formal Algorithms for Transformers</a> provides a mathematical overview and formal algorithms of various transformer architectures.</p></li>
-<li><p>The Illustrated Transformer is a remarkable <a href="https://jalammar.github.io/illustrated-transformer/">blog post</a> that break the transformer model apart and explains each part intuituvely.</p></li>
+<li><p><a href="https://kipp.ly/transformer-taxonomy/">Transformer Taxonomy</a> provides an excellent literature review of transformer models, architectural changes since the inception of standard transformer, post pre-training techniques and 3 training techniques.</p></li>
+<li><p>The Illustrated Transformer is a remarkable <a href="https://jalammar.github.io/illustrated-transformer/">blog post</a> that break the transformer model apart and explains each part intuitively.</p></li>
 <li><p>Transformer and attention blog series by Lilian Weng also provide excellent understanding of transformer and attention mechanism. A notable example of relevant Lilian Weng blogs are <a href="https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/">The Transformer Family Version</a>(there is also <a href="https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/">version 2</a> of this blog) and <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention? Attention!</a>.</p></li>
-<li><p>Attention is All You Need Video by Yannic Kilcher also walkthough the paper, explaining all the relevant concepts and related works well.</p></li>
+<li><p>Attention is All You Need <a href="https://www.youtube.com/watch?v=iDulhoQ2pro">Video</a> by Yannic Kilcher also walkthough the paper, explaining all the relevant concepts and related works well.</p></li>
 </ul>
 <p>The resources provided above are not exhaustive and there are hundreds of other blogs, videos, and papers that explain the transformer well.</p>
 </section>
@@ -644,6 +649,10 @@ Figure 23: Language models(based on Transformer) tends to perform well when rele
 <p>Chen et al., “Extending Context Window of Large Language Models via Positional Interpolation”, 2023</p>
 <p>Sun et al., “Do Long-Range Language Models Actually Use Long-Range Context?”, 2021</p>
 <p>F.Liu et al., “Lost in the Middle: How Language Models Use Long Contexts”, 2023</p>
+<p>Alayrac et al., “Flamingo: a Visual Language Model for Few-Shot Learning” 2022</p>
+<p>Wang et al., “OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework”, 2022</p>
+<p>Lu et al., “Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks”, 2022</p>
+<p>Zhang et al., “Meta-Transformer: A Unified Framework for Multimodal Learning”, 2023</p>
 
 
 </section>

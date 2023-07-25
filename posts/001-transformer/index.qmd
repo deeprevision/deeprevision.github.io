@@ -437,6 +437,12 @@ For instance, the process for handling text, images, and speech each have unique
 
 The achievement of such an architecture would signify a monumental stride in the field of multimodal learning, paving the way for models that can seamlessly transition between different types of data and potentially unlocking new avenues of exploration in multimodal representation learning.
 
+Nearly all current state-of-the-arts in multimodal learning typically uses separate tokenizer and encoder for each modality and most of them are also designed for visual language learning. This section doesn't dive deep into the specifics of current multimodal approaches based on transformers but we provide examples for people interested in diving deep: Flamingo(visual language)([Alayrac et al., 2022](https://arxiv.org/abs/2204.14198)), Gato([Reed et al., 2022](https://arxiv.org/abs/2205.06175)), ImageBind([Girdhar et al., 2023](https://arxiv.org/abs/2305.05665)), OFA([Wang et al., 2022](https://arxiv.org/ABS/2202.03052)), Unified-IO([Lu et al., 2022](https://arxiv.org/abs/2206.08916)), Meta-Transformer([Zhang et al., 2023](https://arxiv.org/abs/2307.10802)), among others.
+
+
+> Virtually all transformer challenges stem from its extreme compute requirements. Truly efficient transformers such as FlashAttention will eliminate most of them.
+
+
 # Open-source Implementations of Transformer
 
 The original transformer model was implemented in Tensor2Tensor library^[Available at [https://github.com/tensorflow/tensor2tensor](https://github.com/tensorflow/tensor2tensor)] but this was deprecated recently. The successor of of Tensor2Tensor is Trax which is based on JAX^[Available at [https://github.com/google/trax](https://github.com/google/trax)].
@@ -459,11 +465,13 @@ This article adds to existing pool of knowledge surrounding the understanding of
 
 * [Formal Algorithms for Transformers](https://arxiv.org/abs/2207.09238) provides a mathematical overview and formal algorithms of various transformer architectures.
 
-* The Illustrated Transformer is a remarkable [blog post](https://jalammar.github.io/illustrated-transformer/) that break the transformer model apart and explains each part intuituvely.
+* [Transformer Taxonomy](https://kipp.ly/transformer-taxonomy/) provides an excellent literature review of transformer models, architectural changes since the inception of standard transformer, post pre-training techniques and 3 training techniques.
+
+* The Illustrated Transformer is a remarkable [blog post](https://jalammar.github.io/illustrated-transformer/) that break the transformer model apart and explains each part intuitively.
 
 * Transformer and attention blog series by Lilian Weng also provide excellent understanding of transformer and attention mechanism. A notable example of relevant Lilian Weng blogs are [The Transformer Family Version](https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/)(there is also [version 2](https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/) of this blog) and [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/).
 
-* Attention is All You Need Video by Yannic Kilcher also walkthough the paper, explaining all the relevant concepts and related works well.
+* Attention is All You Need [Video](https://www.youtube.com/watch?v=iDulhoQ2pro) by Yannic Kilcher also walkthough the paper, explaining all the relevant concepts and related works well.
 
 The resources provided above are not exhaustive and there are hundreds of other blogs, videos, and papers that explain the transformer well.
 
@@ -504,7 +512,6 @@ He et al., "Deep Residual Learning for Image Recognition", 2015
 
 Ioffe and Szegedy, "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift", 2015
 
-
 Xiong et al., "On Layer Normalization in the Transformer Architecture", 2020
 
 Xie et al., "ResiDual: Transformer with Dual Residual
@@ -534,8 +541,7 @@ B. Brown et al., "Language Models are Few-Shot Learners", 2020
 
 OpenAI, "GPT-4 Technical Report", 2023
 
-Radford et al., "Improving Language Understanding
-by Generative Pre-Training", 2018
+Radford et al., "Improving Language Understanding by Generative Pre-Training", 2018
 
 Wei et al., "Emergent Abilities of Large Language Models", 2022
 
@@ -561,11 +567,9 @@ Wang et al., "SimVLM: Simple Visual Language Model Pretraining with Weak Supervi
 
 Chen et al., "PaLI-X: On Scaling up a Multilingual Vision and Language Model", 2023
 
-Bommasani et al., "On the Opportunities and Risks of
-Foundation Models", 2022
+Bommasani et al., "On the Opportunities and Risks of Foundation Models", 2022
 
-Singhal et al., "Large Language Models Encode
-Clinical Knowledge", 2022
+Singhal et al., "Large Language Models Encode Clinical Knowledge", 2022
 
 Wang et al., "ClinicalGPT: Large Language Models Finetuned with Diverse Medical Data and Comprehensive Evaluation", 2023
 
@@ -576,7 +580,6 @@ Wu et al., "BloombergGPT: A Large Language Model for Finance", 2023
 Parmar et al., "Image Transformer", 2018
 
 Dosovitskiy et al., "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale", 2020
-
 
 Sun et al., "Revisiting Unreasonable Effectiveness of Data in Deep Learning Era", 2017
 
@@ -593,7 +596,6 @@ Rombach et al., "High-Resolution Image Synthesis with Latent Diffusion Models", 
 Carion et al., "End-to-End Object Detection with Transformers", 2020
 
 Touvron et al., "Augmenting Convolutional networks with attention-based aggregation", 2021
-
 
 Mehta et al., "MobileViT: Light-weight, General-purpose, and Mobile-friendly Vision Transformer", 2022
 
@@ -625,6 +627,10 @@ Sun et al., "Do Long-Range Language Models Actually Use Long-Range Context?", 20
 
 F.Liu et al., "Lost in the Middle: How Language Models Use Long Contexts", 2023
 
+Alayrac et al., "Flamingo: a Visual Language Model for Few-Shot Learning" 2022
 
+Wang et al., "OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework", 2022
 
+Lu et al., "Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks", 2022
 
+Zhang et al., "Meta-Transformer: A Unified Framework for Multimodal Learning", 2023
