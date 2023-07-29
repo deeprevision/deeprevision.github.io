@@ -1,9 +1,8 @@
 ---
-draft: true
 title: "The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture"
 toc: true
 date: "2023-07-29"
-description: 'A deep dive into Transformer, a neural network architecture that was introduced in the famous paper "attention is all you need" in 2017 and has been revolutionalized every aspect of deep learning since then.'
+description: 'A deep dive into Transformer a neural network architecture that was introduced in the famous paper "attention is all you need" in 2017, its applications, impacts, challenges and future directions'
 categories: [transformers, neural architectures, NLP, computer vision, deep learning]
 author:
   - name: Jean Nyandwi
@@ -17,6 +16,7 @@ google-scholar: true
 bibliography: bibliography.bib
 # format:
 #   pdf:
+#     keep-tex: true
 #     cite-method: natbib
 #     title: "The Transformer Blueprint: A Comprehensive Analysis, Applications, Challenges and Future Directions"
 ---
@@ -176,7 +176,9 @@ The kind of attention described above is called scaled-dot product attention, a 
 
 You may have heard that transformer is parallizable and you may be wondering where it comes from. Transformer parallization comes from attention function. Provided that both query, keys, and values are matrices, attention can be performed in two main matrix multiplies and hence no loops or any recurrent operation involved. Computing attention is resonably faster for GPUs. For bigger models(in order of billions parameters) and massive training data(in order of billion/trillions tokens), attention is can be expensive since it takes quadratic [time complexity](https://en.wikipedia.org/wiki/Time_complexity) from the fact that each token attends other tokens.
 
-One last thing before we conclude this section: if the queries, keys, and values are derived from same source, the attention applied to them is called ***self-attention***. If they come from different source, we say ***cross-attention***.
+::: {.callout-note}
+If the queries, keys, and values are derived from same source, the attention applied to them is called ***self-attention***. If they come from different source, we say ***cross-attention***.
+:::
 
 ### Multi-Head Attention
 
@@ -199,7 +201,6 @@ MLPs or Multilayer Perceptrons^[In the transformer paper, MLPs are what referred
 ![](./mlps-in-transformer.png)
 
 Figure 12:Multi-Layer Perceptrons(MLP) in transformer.
-
 
 
 ## Embeddings and Positional Encoding Layers
@@ -259,7 +260,7 @@ The figure above depicts the attention heads on 8$^{th}$ layer of GPT-2[@radford
 
 A number of tools that visualize attention have evolved overtime to help the deep learning community understand what's going inside the transformer model. One of the most famous tools is BertViz[@vig2019multiscale] ^[BertViz be accessed at [https://github.com/jessevig/bertviz](https://github.com/jessevig/bertviz)]. [ExBert](https://huggingface.co/spaces/exbert-project/exbert) that we used to make the above visualization is also an excellent and simple tool for visualizing the attention on most transformer based models such as GPT-2 and BERT[@devlin2018bert].
 
-# The Pros and Cons of Attention Mechanisms
+# The Pros and Cons of Attention
 
 The attention mechanism has resulted in a significant shift in sequence modelling and other modalities that can be framed as sequences. When compared with other sequence networks such as recurrent networks and 1D convolutions, attention offers numerous advantages. These are briefly discussed below:
 

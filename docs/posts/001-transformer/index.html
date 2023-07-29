@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jean Nyandwi">
 <meta name="dcterms.date" content="2023-07-29">
-<meta name="description" content="A deep dive into Transformer, a neural network architecture that was introduced in the famous paper “attention is all you need” in 2017 and has been revolutionalized every aspect of deep learning since then.">
+<meta name="description" content="A deep dive into Transformer a neural network architecture that was introduced in the famous paper “attention is all you need” in 2017, its applications, impacts, challenges and future directions">
 
 <title>AI Research Blog - The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture</title>
 <style>
@@ -114,7 +114,7 @@ background: #02071a;
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="AI Research Blog - The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture">
-<meta property="og:description" content="A deep dive into Transformer, a neural network architecture that was introduced in the famous paper “attention is all you need” in 2017 and has been revolutionalized every aspect of deep learning since then.">
+<meta property="og:description" content="A deep dive into Transformer a neural network architecture that was introduced in the famous paper “attention is all you need” in 2017, its applications, impacts, challenges and future directions">
 <meta property="og:image" content="./transformer.png">
 <meta property="og:site-name" content="AI Research Blog">
 <meta name="citation_title" content="The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture">
@@ -250,7 +250,7 @@ background: #02071a;
       <h1 class="title">The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture</h1>
                   <div>
         <div class="description">
-          A deep dive into Transformer, a neural network architecture that was introduced in the famous paper “attention is all you need” in 2017 and has been revolutionalized every aspect of deep learning since then.
+          A deep dive into Transformer a neural network architecture that was introduced in the famous paper “attention is all you need” in 2017, its applications, impacts, challenges and future directions
         </div>
       </div>
                           <div class="quarto-categories">
@@ -322,7 +322,7 @@ background: #02071a;
   <li><a href="#linear-and-softmax-layers" id="toc-linear-and-softmax-layers" class="nav-link" data-scroll-target="#linear-and-softmax-layers">Linear and Softmax Layers</a></li>
   </ul></li>
   <li><a href="#visualizing-attention" id="toc-visualizing-attention" class="nav-link" data-scroll-target="#visualizing-attention">Visualizing Attention</a></li>
-  <li><a href="#the-pros-and-cons-of-attention-mechanisms" id="toc-the-pros-and-cons-of-attention-mechanisms" class="nav-link" data-scroll-target="#the-pros-and-cons-of-attention-mechanisms">The Pros and Cons of Attention Mechanisms</a></li>
+  <li><a href="#the-pros-and-cons-of-attention" id="toc-the-pros-and-cons-of-attention" class="nav-link" data-scroll-target="#the-pros-and-cons-of-attention">The Pros and Cons of Attention</a></li>
   <li><a href="#large-language-transformer-models" id="toc-large-language-transformer-models" class="nav-link" data-scroll-target="#large-language-transformer-models">Large Language Transformer Models</a>
   <ul class="collapse">
   <li><a href="#evolution-of-llms" id="toc-evolution-of-llms" class="nav-link" data-scroll-target="#evolution-of-llms">Evolution of LLMs</a></li>
@@ -442,7 +442,19 @@ Attention(Q, K, V) = Softmax(\frac{QK^T}{\sqrt{d_k}})V
 <p>Figure 10: Graphical representation of dot-product attention. Figure adapted from <a href="https://arxiv.org/abs/1706.03762">(Vaswani, 2017)</a>.</p>
 <p>The kind of attention described above is called scaled-dot product attention, a modified dot-product attention<span class="citation" data-cites="luong2015effective">(<a href="#ref-luong2015effective" role="doc-biblioref">Luong, Pham, and Manning 2015</a>)</span>. There are other kinds of attention such as additive attention<span class="citation" data-cites="bahdanau2014neural">(<a href="#ref-bahdanau2014neural" role="doc-biblioref">Bahdanau, Cho, and Bengio 2014</a>)</span>, content-based attention<span class="citation" data-cites="graves2014neural">(<a href="#ref-graves2014neural" role="doc-biblioref">Graves, Wayne, and Danihelka 2014</a>)</span>, location-based attention<span class="citation" data-cites="bahdanau2014neural">(<a href="#ref-bahdanau2014neural" role="doc-biblioref">Bahdanau, Cho, and Bengio 2014</a>)</span>, and general attention<span class="citation" data-cites="luong2015effective">(<a href="#ref-luong2015effective" role="doc-biblioref">Luong, Pham, and Manning 2015</a>)</span>. Each of those attention types can either be applied globally(to the whole input data), hence global attention, or locally(sub-parts of the input data), hence local attention.</p>
 <p>You may have heard that transformer is parallizable and you may be wondering where it comes from. Transformer parallization comes from attention function. Provided that both query, keys, and values are matrices, attention can be performed in two main matrix multiplies and hence no loops or any recurrent operation involved. Computing attention is resonably faster for GPUs. For bigger models(in order of billions parameters) and massive training data(in order of billion/trillions tokens), attention is can be expensive since it takes quadratic <a href="https://en.wikipedia.org/wiki/Time_complexity">time complexity</a> from the fact that each token attends other tokens.</p>
-<p>One last thing before we conclude this section: if the queries, keys, and values are derived from same source, the attention applied to them is called <strong><em>self-attention</em></strong>. If they come from different source, we say <strong><em>cross-attention</em></strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the queries, keys, and values are derived from same source, the attention applied to them is called <strong><em>self-attention</em></strong>. If they come from different source, we say <strong><em>cross-attention</em></strong>.</p>
+</div>
+</div>
 </section>
 <section id="multi-head-attention" class="level3">
 <h3 class="anchored" data-anchor-id="multi-head-attention">Multi-Head Attention</h3>
@@ -493,8 +505,8 @@ Attention(Q, K, V) = Softmax(\frac{QK^T}{\sqrt{d_k}})V
 <p>The figure above depicts the attention heads on 8<span class="math inline">\(^{th}\)</span> layer of GPT-2<span class="citation" data-cites="radford2019language">(<a href="#ref-radford2019language" role="doc-biblioref">Radford et al. 2019</a>)</span>. From the figure, it’s clear that even in the early layers of the transformer, most tokens attend to each other.</p>
 <p>A number of tools that visualize attention have evolved overtime to help the deep learning community understand what’s going inside the transformer model. One of the most famous tools is BertViz<span class="citation" data-cites="vig2019multiscale">(<a href="#ref-vig2019multiscale" role="doc-biblioref">Vig 2019</a>)</span> <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. <a href="https://huggingface.co/spaces/exbert-project/exbert">ExBert</a> that we used to make the above visualization is also an excellent and simple tool for visualizing the attention on most transformer based models such as GPT-2 and BERT<span class="citation" data-cites="devlin2018bert">(<a href="#ref-devlin2018bert" role="doc-biblioref">Devlin et al. 2019</a>)</span>.</p>
 </section>
-<section id="the-pros-and-cons-of-attention-mechanisms" class="level1">
-<h1>The Pros and Cons of Attention Mechanisms</h1>
+<section id="the-pros-and-cons-of-attention" class="level1">
+<h1>The Pros and Cons of Attention</h1>
 <p>The attention mechanism has resulted in a significant shift in sequence modelling and other modalities that can be framed as sequences. When compared with other sequence networks such as recurrent networks and 1D convolutions, attention offers numerous advantages. These are briefly discussed below:</p>
 <ul>
 <li><p><strong>Long-term Dependencies</strong>: Traditional Recurrent Neural Networks (RNNs), including variants like Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU), are prone to the issue of long-term dependencies, where the model’s ability to retain information weakens over time. Attention mechanisms help mitigate this problem by enabling the model to directly access any point in the input sequence, thereby preserving the overall context.</p></li>
