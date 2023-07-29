@@ -1,16 +1,27 @@
 ---
+draft: true
 title: "The Transformer Blueprint: A Holistic Guide to the Transformer Neural Network Architecture"
-author: "Jean de Dieu Nyandwi"
-date: "2023-07-28"
+toc: true
+date: "2023-07-29"
 description: 'A deep dive into Transformer, a neural network architecture that was introduced in the famous paper "attention is all you need" in 2017 and has been revolutionalized every aspect of deep learning since then.'
 categories: [transformers, neural architectures, NLP, computer vision, deep learning]
-toc: true
-draft: true
+author:
+  - name: Jean Nyandwi
+    url: https://nyandwi.com
+    affiliation: Carnegie Mellon University
+citation:
+    type: article-journal
+    container-title: "Deep Learning Revision"
+    url: https://deeprevision.github.io/posts/001-transformer/
+google-scholar: true
 bibliography: bibliography.bib
 # format:
 #   pdf:
-#     cite-method: natbib
+#     # cite-method: natbib
+#     title: "The Transformer Blueprint: A Comprehensive Analysis, Applications, Challenges and Future Directions"
 ---
+
+<!-- pdf title: The Transformer Blueprint: A Comprehensive Analysis, Applications, Challenges and Future Directions -->
 
 \newpage
 
@@ -18,7 +29,7 @@ bibliography: bibliography.bib
 
 Invented in 2017 and first presented in the ground-breaking paper "Attention is All You Need"[@vaswani2017attention], the transformer model has been a revolutionary contribution to deep learning and arguably, to computer science as a whole. Born as a tool for neural machine translation, it has proven to be far-reaching, extending its applicability beyond Natural Language Processing (NLP) and cementing its position as a versatile and general-purpose neural network architecture.
 
-In this comprehensive guide, we will dissect the transformer model to its core, thoroughly exploring every key component from its attention mechanism to its encoder-decoder structure. Not stopping at the foundational level, we will traverse the landscape of large language models that leverage the power of the Transformer, delving into their unique design attributes and functionalities. Further expanding the horizons, we will explore the applications of transformer models beyond NLP and probe into the current challenges and potential future directions of this influential architecture. Additionally, a curated list of open-source implementations and supplementary resources will be provided for those intrigued to explore further.
+In this comprehensive guide, we will dissect the transformer model to its core, thoroughly exploring every key component from its attention mechanism to its encoder-decoder structure. Not stopping at the foundational level, we will traverse the landscape of large language models that leverage the power of the transformer, delving into their unique design attributes and functionalities. Further expanding the horizons, we will explore the applications of transformer models beyond NLP and probe into the current challenges and potential future directions of this influential architecture. Additionally, a curated list of open-source implementations and supplementary resources will be provided for those intrigued to explore further.
 
 Without bells and whistles, let's dive in!
 
@@ -193,7 +204,7 @@ Figure 12:Multi-Layer Perceptrons(MLP) in transformer.
 
 ## Embeddings and Positional Encoding Layers
 
-The Transformer architecture incorporates two embedding layers: one at the encoder to handle the input or source sequence, and another at the decoder for handling target or output sequence. These embedding layers convert input or output tokens into dense vectors of a fixed size, essentially mapping each token in a sequence to a specific dense vector. Utilizing embeddings is a standard practice in language modeling due to the semantic depth they provide. With these embedded token vectors, those bearing similar semantic meanings tend to align in the same direction.^[If you want to see how embeddings look like and how words with same semantic meaning tend to be closer to each other, you can play with [Embedding Projector](http://projector.tensorflow.org/)].
+The transformer architecture incorporates two embedding layers: one at the encoder to handle the input or source sequence, and another at the decoder for handling target or output sequence. These embedding layers convert input or output tokens into dense vectors of a fixed size, essentially mapping each token in a sequence to a specific dense vector. Utilizing embeddings is a standard practice in language modeling due to the semantic depth they provide. With these embedded token vectors, those bearing similar semantic meanings tend to align in the same direction.^[If you want to see how embeddings look like and how words with same semantic meaning tend to be closer to each other, you can play with [Embedding Projector](http://projector.tensorflow.org/)].
 
 
 The size of the embeddings in the base transformer is 512(this is the dimension of the whole model). As a side note here, transformer architecture maintains the same dimension across the whole network and it is 512 for base model. This is what referred to as $d_{model}$ previously.
@@ -279,16 +290,15 @@ Furthermore, while attention offers a certain level of interpretability, it is f
 
 ## Evolution of LLMs
 
-Large Language Models (LLMs) have revolutionized human interaction with machine learning systems. Natural language interfaces, such as [ChatGPT](https://openai.com/blog/chatgpt) and [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), are powered by robust LLMs. These models have paved the way for executing natural language downstream tasks on-fly or through zero-shot learning. Such tasks, in the past, necessitated the gathering of a downstream or task-specific dataset.
+Large Language Models (LLMs) have revolutionized human interaction with machine learning systems. Natural language interfaces, such as [ChatGPT](https://openai.com/blog/chatgpt) and [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), are powered by robust LLMs. These models have paved the way for executing natural language downstream tasks on-fly or through zero-shot learning. Such tasks, in the past, necessitated the gathering of a downstream or task-specific datasets.
 
-At the core of these LLMs, one finds a fundamental Transformer model,  it's fundamentaly a transformer model that we have seen with little tweaks here and there. In this section, we will delve into the compressed evolution of Large Language Models. Moreover, we will explore the development of vertical LLMs, specifically designed and trained for particular applications.
+At the core of these LLMs, it's fundamentaly a transformer model that we have seen with little tweaks here and there. In this section, we will delve into the compressed evolution of Large Language Models. Moreover, we will explore the development of vertical LLMs, specifically designed and fine-tuned for particular applications.
 
-Transormer base model has 65M parameters but since then, language models got bigger and bigger(in order of billions) and hence the name large language models. Below is a quick overview of popular large language models.
+Transormer base model had 65M parameters but since then, language models got bigger and bigger(in order of billions) and hence the name large language models. Below is a quick overview of popular large language models.
 
 ![](./LLMs-table.png)
 
-Figure 17: Overview of popular LLMs. Layers are number of stacked encoders/decoders or both for encoder-decoder models, width is the dimension of the model, heads are number of attention layers in multi-head attention, params are number of parameters. N.B, the numbers of GPT-2 are not exactly clear.
-
+Figure 17: Overview of popular LLMs. Layers are number of stacked encoders/decoders or both for encoder-decoder models, width is the dimension of the model, heads are number of attention layers in multi-head attention, params are number of parameters. N.B, the numbers of heads in GPT-2 are not exactly known.
 
 
 The training process for most large language models (LLMs) follows a broadly similar pattern. In the initial pretraining phase, LLMs are exposed to vast volumes of curated textual data, sourced from a diverse range of materials such as books, articles, code snippets, and websites. This vast dataset is essential for the models to gain a comprehensive understanding of the world, enabling them to create rich representations and generate contextually relevant responses. The general public holds high expectations for LLMs' performance across various domains. To meet these expectations, the pretraining data must encompass a wide spectrum of topics and disciplines[@yang2023harnessing].
@@ -298,7 +308,6 @@ The actual training of LLMs occurs in an [unsupervised](https://en.wikipedia.org
 ![](./llms-train-workflow.png)
 
 Figure 18: A typical training workflow of large language models. LLMs are typically trained on large unlabelled dataset. After, they can be used directly via prompt engineering or they can be fine-tuned further on specialized tasks.
-
 
 
 However, training models on unlabelled data requires the clever implementation of training objectives since there is no ground truth for reference. Most LLMs, therefore, utilize the next-token prediction (NTP) as a common training objective. In essence, the LLMs are taught to accurately predict the next token in a sequence, gradually enhancing their understanding and generating capabilities. Another commonly used training objective is [masked language modelling(MLM)](https://huggingface.co/docs/transformers/main/tasks/masked_language_modeling). Masked language models are trained to predict a masked token in a sequence. This objective was popularized by BERT[@devlin2018bert].
@@ -317,7 +326,7 @@ The standard transformer model has encoder-decoder and this has to do with the t
 
 Encoder-only LLMs use the encoder part of the standard transformer model. Encoder-only LLMs are typically used for NLP discriminative tasks such as text classification and sentiment analysis.
 
-BERT[@devlin2018bert] is one of most popular encoder-only language models. BERT is one of the earliest works that showed that you can pretrain a transformer(encoder) on large unlabeled text dataset and finetune the same architecture on various downstream tasks with additional task-specific head. The pretraining objectives for BERT was masked language modelling(MLM) and next sentence prediction(NSP)^[ Next sentence prediction in BERT and next token prediction in standard transformer are different. The idea is roughly similar, but the former is usually for discriminative modelling while the later is for auto-regressive generative modelling]. With masked language modeling, we mask a given percentage(15% as noted in the paper) of input tokens and the goal is to predict the masked tokens. In next sentence prediction, for two sentences making up the input sequence, the goal is to predict whether or not two sentences are in a correct order at random.
+BERT[@devlin2018bert] is one of most popular encoder-only language models. BERT is one of the earliest works that showed that you can pretrain a transformer(encoder) on large unlabeled text dataset and finetune the same architecture on various downstream tasks with additional task-specific head. The pretraining objectives for BERT were masked language modelling(MLM) and next sentence prediction(NSP)^[ Next sentence prediction in BERT and next token prediction in standard transformer are different. The idea is roughly similar, but the former is usually for discriminative modelling while the later is for auto-regressive generative modelling]. With masked language modeling, we mask a given percentage(15% as noted in the paper) of input tokens and the goal is to predict the masked tokens. In next sentence prediction, for two sentences pair making up the input sequence, the goal is to predict whether or not two sentences are in a correct order at random.
 
 ![](./mlm-bert.png)
 
@@ -343,11 +352,11 @@ GPT models are not the only models based on decoder. In fact, most famous LLMs a
 
 Encoder-decoder LLMs looks like the standard transformer. They are generally used in tasks that demands processing two sequences(i.e, input and target are both sequences) such as machine translation. Encoder-decoder style is not widely used compared to other model styles we have seen. The most famous models of this kind are T5[@raffel2019exploring], BART[@lewis2019bart], UL2[@tay2022ul2], FlanT5[@chung2022scaling], mT5[@xue2020mt5], etc...
 
-Encoder-decoder style is also used in multimodal learning, most notably vision-language pretraining(VLP). Works like SimVLM[@wang2021simvlm] and PALI-X[@chen2023palix] employs encoder for learning joint image and text representations and decoder for generating the output.
+Encoder-decoder style is also used in multimodal learning, most notably vision-language pretraining(VLP). Works like SimVLM[@wang2021simvlm] and PaLI-X[@chen2023palix] employs encoder for learning joint image and text representations and decoder for generating the output.
 
 ## Vertical LLMs
 
-Most of LLMs that we outlined above are typically referred to as foundational LLMs. Foundational models are typically trained on massive amount of data with self-supervision and they can be fine-tuned to a wide range of downstream tasks[@bommasani2022opportunities].
+Most of LLMs that we outlined above are typically referred to as foundational or [frontier](https://openai.com/blog/frontier-model-forum) LLMs. Foundational models are typically trained on massive amount of data with self-supervision and they can be fine-tuned to a wide range of downstream tasks[@bommasani2022opportunities].
 
 Vertical LLMs are a class of LLMs that are adapted to specific applications. Foundational LLMs can generalize to simple tasks like sentiment analysis but they don't perform well on complex tasks or tasks that require a domain expertize. For example, a foundational LLM is unlikely to perform well on medical question answering task because it doesn't have expertize in medicine. More examples: a foundational LLM is unlikely to perform well on legal question answering task because it doesn't have expertize in law. This is also true in other fields such as finance, physics, chemistry, etc...Vertical LLMs are designed to address this issue. They are trained on a specific domain and they can perform well on tasks that require expertize in that domain. Foundational models aim to be generalists but most of the time, we care about models that can do one thing very well.
 
@@ -379,7 +388,7 @@ Transformer has established itself as universal architecture and recent works ac
 
 Transformer has shown significant performance across various modalities such as language, vision, robotics, and reinforcement learning. Transformer neural network architecture has a set of traits that make it a suitable architecture for those domains: it is expressive, plays well with current optimization techniques, and it can be parallized. From those traits, one can say that transformer is an efficient architecture. That said however, the efficiency of transformer comes with enormous computatation cost due to the quadratic time and memory complexity of self-attention. The compute requirements of transformer has limited its scalability and its applications in low-budget devices such as smartphones and microcontrollers.
 
-Model efficiency is an important thing to take into account when developing and deploying machine learning systems because how a model perform during inference can affects user experience[@dehghani2022efficiency]. There has been zillion transformer models that claim to improve the efficiency(memory footprint and computational cost) of transformer architecture(those models are typically called ***"xformers"***) but those models usually tend to be targeted at one particular benchmark or device. Most of the new ***xformers*** models that claim to reduce the quadratic time and memory complexity of self-attention are much slower than vanilla Transformer and they are rarely used in practice and they don’t have the universality of original Transformer[@tay2020efficient].
+Model efficiency is an important thing to take into account when developing and deploying machine learning systems because how a model perform during inference can affects user experience[@dehghani2022efficiency]. There has been zillion transformer models that claim to improve the efficiency(memory footprint and computational cost) of transformer architecture(those models are typically called ***"xformers"***) but those models usually tend to be targeted at one particular benchmark or device. Most of the new ***xformers*** models that claim to reduce the quadratic time and memory complexity of self-attention are much slower than vanilla transformer and they are rarely used in practice and they don’t have the universality of original transformer[@tay2020efficient].
 
 As [@tay2020efficient] puts it nicely in a survey of "Efficient Transformers", *the ideal xformer should yes reduce the quadratic time complexity of self-attention, but should stay universal and perform well across all tasks and modalities. It should also not trade-off speed for memory, should not be hard-engineered, should stay elegant and simple.* For more, I recommend you read the survey paper of [efficient transformers](https://arxiv.org/abs/2009.06732).
 
@@ -388,28 +397,28 @@ Figure 21: A taxonomy of efficient transformers. Image from  [@tay2020efficient]
 
 Virtually all modified transformer models compute the approximation of attention to reduce the cost down. As opposed to those approaches, there is actually one kind of attention that computes exact standard attention values but way faster. That approach is FlashAttention[@dao2022flashattention] and we will talk about it on a high-level.
 
-Flash Attention is fast and memory-efficient algorithm that computes the exact attention. Flash Attention is 2-4x faster than standard attention. It achieves this enormous increase in compute efficiency by using two main techniques: tiling and recomputation. Tiling happens in forward pass and it involves splitting large matrices in attention(K key and V value) into blocks. Rather than computing attention over entire matrices, flash attention computes it over blocks and concatenate the resulting blocks saving a huge amount of memory. Recomputation happens in backward pass and it basically means recomputing the attention matrix rather than storing it in forward. The idea of flash attention boils down to improving the memory and not decreasing computations because modern GPUs have high theorical FLOPs(Floaping Point Operations, means you want to max that out) but limited memory^[GPU main memory is called HBM which stands for High Bandwidth Memory](means any saving in memory can improve the training speed). HBM is typically large but it is not faster than on-chip SRAM(Static Random Access Memory) and thus, the computations over blocks(of K and V) happens in SRAM(because it is faster) but all full matrices are stored in HBM(because it's big). This high-level explanation is probably oversimplication provided that Flash Attention is implemented at the GPU level(with CUDA software) and this is in fact the reason why it is IO aware but hopefully that explain what's going on in this fast algorithm.
+FlashAttention is fast and memory-efficient algorithm that computes the exact attention. FlashAttention is 2-4x faster than standard attention. It achieves this enormous increase in compute efficiency by using two main techniques: tiling and recomputation. Tiling happens in forward pass and it involves splitting large matrices in attention(K key and V value) into blocks. Rather than computing attention over entire matrices, FlashAttention computes it over blocks and concatenate the resulting blocks saving a huge amount of memory. Recomputation happens in backward pass and it basically means recomputing the attention matrix rather than storing it in forward. The idea of FlashAttention boils down to improving the memory and not decreasing computations because modern GPUs have high theorical FLOPs(Floaping Point Operations, means you want to max that out) but limited memory^[GPU main memory is called HBM which stands for High Bandwidth Memory](means any saving in memory can improve the training speed). HBM(High Bandwidth Memory) is typically large but it is not faster than on-chip SRAM(Static Random Access Memory) and thus, the computations over blocks(of K and V) happens in SRAM(because it is faster) but all full matrices are stored in HBM(because it's big). This high-level explanation is probably oversimplication provided that FlashAttention is implemented at the GPU level(with CUDA software) and this is in fact the reason why it is IO aware but hopefully that explain what's going on in this fast algorithm.
 
-Below image shows the memory hierarchy in GPU, Flash Attention algorithm, and amount of time(in ms) taken by each intermediate step in GPT-2 attention versus Flash Attention. Ideally, we would want the bulk of computations to be taken by matrix multiplication(matmul) operations but surprisingly, dropout, softmax, and mask(i.e, GPT-2 is decoder model) end up taking the whole runtime in GPT-2 attention because they are computed over full matrices. Matmuls take less runtime than those other operations because GPUs are exactly designed to be fast at matrix multiplications(they have really high theorical FLOPs and maximizing FLOPs usage doesn't reduce the runtime). By using tiling and recomputation techniques, the compute time of Flash Attention is significantly low compared to standard attention as you can see below.
+Below image shows the memory hierarchy in GPU, FlashAttention algorithm, and amount of time(in ms) taken by each intermediate step in GPT-2 attention versus FlashAttention. Ideally, we would want the bulk of computations to be taken by matrix multiplication(matmul) operations but surprisingly, dropout, softmax, and mask(i.e, GPT-2 is decoder model) end up taking the whole runtime in GPT-2 attention because they are computed over full matrices. Matmuls take less runtime than those other operations because GPUs are exactly designed to be fast at matrix multiplications(they have really high theorical FLOPs and maximizing FLOPs usage doesn't reduce the runtime). By using tiling and recomputation techniques, the compute time of FlashAttention is significantly low compared to standard attention as you can see below.
 
 ![](./flash-attn.png)
 
-Figure 22: The memory hierachy in GPU, Flash Attention algorithm, and runtime of GPT-2 attention vs Flash Attention.
+Figure 22: The memory hierachy in GPU, FlashAttention algorithm, and runtime of GPT-2 attention vs FlashAttention.
 
 
 
-Flash Attention is intergrated in PyTorch 2.0, Hugging Face transformers, Microsoft's DeepSpeed, MosaicML composer library and [many other library](https://github.com/Dao-AILab/flash-attention/blob/main/usage.md). You can learn more flash attention in the paper, or watch this video by core author, and the release blogpost. At the time of writing this section, Flash Attention 2[@dao2023flashattention] was also released and it is even faster than Flash Attention version 1 on several orders of magnitude. Flash Attention-2 improves parallelism by parallelizing over sequence length dimension instead of batch size and number of attention heads and splits Q(query) matrix instead of K and V. This [release blog post](https://crfm.stanford.edu/2023/07/17/flash2.html) explains well what FlashAttention2 brings to the tensor table.
+FlashAttention is intergrated in PyTorch 2.0, Hugging Face transformers, Microsoft's DeepSpeed, MosaicML composer library and [many other library](https://github.com/Dao-AILab/flash-attention/blob/main/usage.md). You can learn more FlashAttention in the paper, or watch [this video](https://www.youtube.com/watch?v=gMOAud7hZg4) by core author, and the [release blogpost](https://www.adept.ai/blog/flashier-attention). At the time of writing this section, FlashAttention2[@dao2023flashattention] was also released and it is even faster than FlashAttention version 1 on several orders of magnitude. FlashAttention-2 improves parallelism by parallelizing over sequence length dimension instead of batch size and number of attention heads and splits Q(query) matrix instead of K and V. This [release blog post](https://crfm.stanford.edu/2023/07/17/flash2.html) explains well what FlashAttention2 brings to the tensor table.
 
 ## Transformers with Effective Long Contexts
 
-Handling long context length is one of the main active area of research in Transformer large models. As direct consequence of the quadratic time and memory complexity of attention, transformer fails to process long context windows. Researching techniques that extend the context window of transformer architecture is an important thing since context window determines the amount of information that you can fit in transformer memory during inference. Tasks like long conversations, summarizing long documents, and executing long-term planning may require models that support long context windows[@chen2023extending].
+Handling long context length is one of the main active areas of research in Transformer large models. As direct consequence of the quadratic time and memory complexity of attention, transformer fails to process long context windows. Researching techniques that extend the context window of transformer architecture is an important thing since context window determines the amount of information that you can fit in transformer memory during inference. Tasks like long conversations, summarizing long documents, and executing long-term planning may require models that support long context windows[@chen2023extending].
 
-Alot have been written about context windows and extending them such as [@sun-etal-2021-long], but I want to highlight a recent paper that presents remarkable findings around long contexts. Recents language models(based on transformer) can takes longer contexts but it's not clear whether context actually helps. As shown by [@liu2023lost], the performance of language models degrades with increase in input context length. So, even for models that have extended context length, their performance still degrades for longer input contexts. Also, the work also found that language models perform well when the relevant information are placed at the beginning or the end of the input context and significantly degrades when the relevant information are placed in the middle, suggesting that language models are U-shaped reasoners.
+Alot have been written about context windows and extending them such as [@sun-etal-2021-long], but I want to highlight a recent paper that presents remarkable findings around long contexts. Recents language models(based on transformer) can takes longer contexts but it's not clear whether long context actually helps. As shown by [@liu2023lost], the performance of language models degrades with increase in input context length. So, even for models that have extended context length, their performance still degrades for longer input contexts. Also, the work also found that language models perform well when the relevant information are placed at the beginning or the end of the input context and significantly degrades when the relevant information are placed in the middle, suggesting that language models are U-shaped reasoners.
 
 The findings highlighted above are appealing and provide broad implications that could be applicable in the design of fine-tuning datasets and during in-context learning, but it's important to note that none of those is established understandings provided that "how transformer models perform on long context windows" is an active area of research. We hope that future transformer models will be able to operate over long input sequences and at the same time performing well regardless of relevant information are placed. This is in fact the holy grail of large language models.
 
 ![](./context.png)
-Figure 23: Language models(based on Transformer) tends to perform well when relevant information are at the beginning or at the end of input context(graph on the left) and their performance decreases for longer contexts(graph on the right). The graphs are taken from [@liu2023lost].
+Figure 23: Language models(based on transformer) tends to perform well when relevant information are at the beginning or at the end of input context(graph on the left) and their performance decreases for longer contexts(graph on the right). The graphs are taken from [@liu2023lost].
 
 ## Multimodal Transformer
 
@@ -421,23 +430,23 @@ The achievement of such an architecture would signify a monumental stride in the
 
 Nearly all current state-of-the-arts in multimodal learning typically uses separate tokenizer and encoder for each modality and most of them are also designed for visual language learning. This section doesn't dive deep into the specifics of current multimodal approaches based on transformers but we provide examples for people interested in diving deep: Flamingo(visual language)[@alayrac2022flamingo], Gato[@reed2022generalist], ImageBind[@girdhar2023imagebind], OFA[@wang2022ofa], Unified-IO[@lu2022unified], Meta-Transformer[@zhang2023meta], among others.
 
-
-> Virtually all transformer challenges stem from its extreme compute requirements. Truly efficient transformers such as FlashAttention will eliminate most of them.
-
+::: {.callout-note}
+Virtually all transformer challenges stem from its extreme compute and memory requirements. Truly efficient transformers such as FlashAttention could potentially alleviate those challenges.
+:::
 
 # Open-source Implementations of Transformer
 
 The original transformer model was implemented in Tensor2Tensor library^[Available at [https://github.com/tensorflow/tensor2tensor](https://github.com/tensorflow/tensor2tensor)] but this was deprecated recently. The successor of of Tensor2Tensor is Trax which is based on JAX^[Available at [https://github.com/google/trax](https://github.com/google/trax)].
 
-There are many open-source implementations of Transformer model architecture. Let's briefly talk about three of most popular implementations. HuggingFace [Transformer](https://github.com/huggingface/transformers) library[@wolf-etal-2020-transformers] is arguably one of the most popular implementations of transformers. The library simplifies inference pipelines for NLP(and vision) downstream tasks and can be used to train or finetune transformer-based models. HuggingFace Transformer library is easy to use, it's clean, and has a large community of developers and contributors. [minGPT](https://github.com/karpathy/minGPT) and [nanoGPT](https://github.com/karpathy/nanoGPT) by Andrej Karpathy are also popular implementations in open-source and research community. Furthermore, [x-transformers](https://github.com/lucidrains/x-transformers) provides concise and experimental implementations of various transformer models usually from new research papers.
+There are many open-source implementations of transformer model architecture. Let's briefly talk about three of most popular implementations. HuggingFace [Transformer](https://github.com/huggingface/transformers) library[@wolf-etal-2020-transformers] is arguably one of the most popular implementations of transformers. The library simplifies inference pipelines for NLP(and vision) downstream tasks and can be used to train or finetune transformer-based models. HuggingFace Transformer library is easy to use, it's clean, and has a large community of developers and contributors. [minGPT](https://github.com/karpathy/minGPT) and [nanoGPT](https://github.com/karpathy/nanoGPT) by Andrej Karpathy are also popular implementations in open-source and research community. Furthermore, [x-transformers](https://github.com/lucidrains/x-transformers) provides concise and experimental implementations of various transformer models usually from new research papers.
 
 Lastly, it's unlikely you will need to implement transformer model or part of it from scratch because modern deep learning frameworks such as [PyTorch](https://pytorch.org/docs/stable/nn.html#transformer-layers), [Keras](keras.io/api/keras_nlp), and JAX(Via [Flax](https://github.com/google/flax)) provides its implementation as layers that you can import easily just like how you import convolution or linear layers.
 
 \newpage
 
-# Suggested and Supplementary Resources
+# Supplementary Resources
 
-This article adds to existing pool of knowledge surrounding the understanding of transformer neural network architecture. Therefore, it would be remiss not to highlight some invaluable resources on Transformer architecture, which we will briefly explore below:
+This article contributes to an existing pool of knowledge surrounding the understanding of transformer neural network architecture. Therefore, it would be remiss not to highlight some invaluable resources on transformer architecture, which we will briefly provides below:
 
 * The Annotated Transformer: This is one of the best and practical resources. It provides line-by-line implementation of transformer architecture with completely usable code. The [original version](https://nlp.seas.harvard.edu/2018/04/03/attention.html) was written by Sasha Rush and [recent version](http://nlp.seas.harvard.edu/annotated-transformer/) was written by Austin Huang and his colleagues.
 
@@ -453,21 +462,20 @@ This article adds to existing pool of knowledge surrounding the understanding of
 
 * Transformer and attention blog series by Lilian Weng also provide excellent understanding of transformer and attention mechanism. A notable example of relevant Lilian Weng blogs are [The Transformer Family Version](https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/)(there is also [version 2](https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/) of this blog) and [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/).
 
-* Attention is All You Need [Video](https://www.youtube.com/watch?v=iDulhoQ2pro) by Yannic Kilcher also walkthough the paper, explaining all the relevant concepts and related works well.
+* Attention is All You Need [Video](https://www.youtube.com/watch?v=iDulhoQ2pro) by Yannic Kilcher walkthroughs the paper, explaining all the relevant concepts and related works well.
 
-The resources provided above are not exhaustive and there are hundreds of other blogs, videos, and papers that explain the transformer well.
-
+* [Transformer models: an introduction and catalog](https://arxiv.org/abs/2302.07730) is also another resource that is worth mentioning. It provides a decent catalog of popular transformer models.
 
 # Conclusion
 
 The significance of transformer neural network architecture can not be overstated in the field of deep learning and computer science. The transformer model, initially introduced for neural machine translation has evolved into a versatile and general-purpose architecture, demonstrating impressive performance beyond natural language processing into other various modalities.
 
-Throughout this article, we have delved into the core mechanics of the transformer and its essential components - its encoder and decoder structure, the ingenious attention mechanism, multi-head attention, MLPs, embedding, positional encoding layers, and more.
+Throughout this article, we have delved into the core mechanics of the transformer and its essential components - its encoder and decoder structure, attention mechanism, multi-head attention, MLPs, embedding, positional encoding layers, and more.
 We have explored several benefits of self-attention, along with potential drawbacks. Also, by examining the visualization of attention, we have gained a deeper understanding of how transformers focus on different parts of the input sequence to generate outputs.
 
-Transformers are at the core of large language models(LLMs) which has taken the world by a storm recently. We have seen evolution of LLMs and their different design styles, and the applications of transformers beyond NLP. We have also talked their current challenges, including the need for more efficient models and the effective use of context windows. These challenges present exciting opportunities for future research and improvements.
+Transformers are at the core of large language models(LLMs) which has taken the world by a storm recently. We have seen evolution of LLMs and their different design styles, and the applications of transformers beyond NLP. We have also talked their current challenges, including the need for more efficient models and the effective use of context window. These challenges present exciting opportunities for future research and improvements.
 
-As deep learning field continues to evolve, transformer architecture remains a foundational building block of modern machine learning systems. There are many variations of transformer architectures, but regardless of what the future of transformers holds, one thing is certain - with attention, you have everything you need. Stay curious, keep learning, and always pay attention!
+As deep learning field continues to evolve, transformer architecture remains a foundational building block of modern machine learning systems. There are many variations of transformer architectures, but regardless of what the future of transformers holds, one thing has been certain - attention is all you need. Stay curious, keep learning, and always pay attention!
 
 \newpage
 
