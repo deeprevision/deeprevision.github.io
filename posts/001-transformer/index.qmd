@@ -17,7 +17,7 @@ google-scholar: true
 bibliography: bibliography.bib
 # format:
 #   pdf:
-#     # cite-method: natbib
+#     cite-method: natbib
 #     title: "The Transformer Blueprint: A Comprehensive Analysis, Applications, Challenges and Future Directions"
 ---
 
